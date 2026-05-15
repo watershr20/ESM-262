@@ -1,0 +1,35 @@
+---
+title: "ESM 262 Homework 4"
+format: html
+editor: visual
+author: Hayden Waters
+date: 5/14/2026
+---
+
+Homework 4: Building a Biodiversity Function
+
+```{r}
+#install packages
+library(tidyverse)
+library(here)
+```
+
+The function "simpson_bio" will calculate Simpson's Index, which is the probability that two individuals selected from a sample will belong to the same species. It will take the input "n", corresponding to the number of individuals of each species in the sample, and "N", which represents the total number of individuals of all species. To calculate Simpson's Index, it will take the sum of (n/N)\^2 for all values of n.
+
+```{r}
+#Import simpson_bio function
+source(here("simpson_bio.R"))
+```
+
+```{r}
+#Create test data
+test_n = c(10, 50, 25, 5, 10) #Number of individuals sampled of 5 hypothetical species
+test_N = sum(test_n) #Sum of all individuals of all species
+```
+
+```{r}
+#Run Simpson's Index function with test data
+simpson_bio(test_n, test_N)
+```
+
+The function yields a Simpson's Index value of 0.335, indicating that two randomly selected individuals from the population sample have a 33.5% chance of being the same species.
